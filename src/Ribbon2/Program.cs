@@ -1,6 +1,5 @@
-﻿using System;
-using ExcelDna.Integration;
-using ExcelDna.Logging;
+﻿using ExcelDna.Integration;
+using NetOffice.ExcelApi;
 
 namespace Ribbon2
 {
@@ -8,16 +7,8 @@ namespace Ribbon2
     {
         public void AutoOpen()
         {
-            try
-            {
-                
-            }
-            catch (Exception e)
-            {
-                LogDisplay.RecordLine(e.Message);
-                LogDisplay.RecordLine(e.StackTrace);
-                LogDisplay.Show();
-            }
+            // The Excel Application object
+            AddinContext.ExcelApp = new Application(null, ExcelDnaUtil.Application);
         }
 
         public void AutoClose()
